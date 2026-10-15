@@ -2,7 +2,7 @@
 
 App web full-stack que compara precios de supermercados de **Gran Rosario** con datos oficiales de **Precios Claros (SEPA)**. Buscás un producto, ves en qué cadena está más barato, y armás tu changuito para saber dónde te conviene hacer toda la compra.
 
-🔗 **Probala online:** _(link de Render, se completa al publicar)_
+🔗 **Probala online:** https://comparador-precios-rosario.onrender.com
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-009688)
