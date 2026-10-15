@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparador de Precios Rosario | ¿Dónde está más barato?</title>
+  <meta name="description" content="Compará precios de supermercados de Rosario con datos oficiales de Precios Claros. Armá tu changuito y descubrí qué cadena te conviene.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="/" class="logo">🛒 <span>Comparador</span> Rosario</a>
+      <button class="cart-btn" id="abrirCarrito" type="button" aria-label="Ver changuito">
+        Changuito <span class="badge" id="contador">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+
+    <!-- ======== COLUMNA PRINCIPAL ======== -->
+    <section class="main">
+      <div class="hero">
+        <h1>¿Dónde está más barato?</h1>
+        <p class="sub" id="resumen">Cargando datos…</p>
+
+        <form class="search" id="formBuscar" role="search">
+          <span class="search__icon" aria-hidden="true">🔍</span>
+          <input id="buscador" type="search" placeholder="Buscá un producto: leche, yerba, aceite…"
+                 autocomplete="off" aria-label="Buscar producto">
+        </form>
+
+        <div class="chips" id="sugerencias" aria-label="Búsquedas sugeridas">
+          <button type="button">leche serenisima</button>
+          <button type="button">yerba playadito</button>
+          <button type="button">aceite girasol</button>
+          <button type="button">fideos matarazzo</button>
+          <button type="button">cafe la virginia</button>
+          <button type="button">coca cola</button>
+        </div>
+      </div>
+
+      <p class="estado" id="estado"></p>
+      <div class="resultados" id="resultados"></div>
+    </section>
+
+    <!-- ======== CHANGUITO ======== -->
+    <aside class="cart" id="carrito" aria-label="Changuito">
+      <div class="cart__head">
+        <h2>Tu changuito</h2>
+        <button class="icon-btn cart__close" id="cerrarCarrito" type="button" aria-label="Cerrar">✕</button>
+      </div>
+      <p class="cart__empty" id="carritoVacio">Agregá productos y te digo en qué supermercado te conviene comprar todo junto.</p>
+      <ul class="cart__items" id="itemsCarrito"></ul>
+      <div class="cart__compare" id="comparacion"></div>
+      <button class="link-btn" id="vaciar" type="button" hidden>Vaciar changuito</button>
+    </aside>
+  </main>
+
+  <!-- ======== DETALLE DE PRODUCTO (ventana) ======== -->
+  <dialog class="modal" id="modal" aria-labelledby="modalTitulo">
+    <div class="modal__head">
+      <div>
+        <p class="modal__brand" id="modalMarca"></p>
+        <h2 id="modalTitulo"></h2>
+        <p class="modal__meta" id="modalMeta"></p>
+      </div>
+      <button class="icon-btn" id="cerrarModal" type="button" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="modal__save" id="modalAhorro"></div>
+    <ol class="stores" id="modalPrecios"></ol>
+    <div class="modal__foot">
+      <button class="btn" id="agregar" type="button">Agregar al changuito</button>
+    </div>
+  </dialog>
+
+  <footer class="footer wrap">
+    <p>Datos oficiales de <a href="https://datos.produccion.gob.ar/dataset/sepa-precios" target="_blank" rel="noopener">Precios Claros (SEPA)</a>. Los precios pueden variar en el local.</p>
+    <p>Hecho por <a href="https://alexisrobledoo.github.io" target="_blank" rel="noopener">Alexis Robledo</a> · <a href="/docs" target="_blank">API</a> · <a href="https://github.com/AlexisRobledoo/comparador-precios" target="_blank" rel="noopener">Código</a></p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
